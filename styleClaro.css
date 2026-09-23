@@ -63,7 +63,7 @@ p{
 }
 h1, h2, h3, p, li, cite {
     color: #000000; 
-    text-shadow: 0 0 20px #FF2A40E6, 0 0 15px #FF2A40E6, 0 0 7px #ffffffE6;
+    text-shadow: -1px -1px 1px #ffffff,  1px -1px 1px #ffffff, -1px  1px 1px #ffffff, 1px  1px 1px #ffffff, 0    0   10px #ffffff, 0    0   20px #ffffff;
 }
 
 /* --- BOTÓN DE TEMA --- */
