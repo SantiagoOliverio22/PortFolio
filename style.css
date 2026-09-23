@@ -82,8 +82,8 @@ nav{
         display: inline-block;
         text-decoration: none;
         color: #ffffff;
-        font-size: 28px;
-        margin: auto 40px;
+        font-size: 25px;
+        margin: auto 30px;
         transition: all 0.3s ease;
         cursor: pointer;
     }
