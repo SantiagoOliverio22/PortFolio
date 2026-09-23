@@ -630,6 +630,12 @@ footer{
         margin: 0;
         font-size: 20px;
     }
+    .exsa{
+        width: 90%;          
+        max-width: 100%;    
+        margin: 0 auto 15px auto !important; 
+        text-align: center;
+    }
     .yoinicio, .yosobremi {
         flex-direction: column;
         align-items: center;
