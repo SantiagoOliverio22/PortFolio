@@ -271,9 +271,9 @@ blockquote{
             }
             i{
                 font-size: 60px;
-                margin-bottom: 15px;
-                color: #FF2A40;
+                margin-bottom: 15px; 
             }
+
             .indicador-click {
                 display: block;
                 margin-top: auto; /* Empuja el texto al fondo si la tarjeta es muy alta */
@@ -283,8 +283,9 @@ blockquote{
                 text-transform: uppercase;
                 letter-spacing: 2px;
                 font-family: 'subtitulos';
-                i{
+                span{
                     font-size: 20px;
+                    
                 }
             }
         }
@@ -645,7 +646,7 @@ footer{
     background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(230, 184, 0, 0.4);
+    border: 1px solid rgba(207, 6, 6, 0.4);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -689,7 +690,7 @@ footer{
     background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 2px solid rgba(230, 184, 0, 0.4);
+    border: 2px solid rgba(230, 35, 0, 0.4);
     border-radius: 8px;
     padding: 20px;
     text-align: center;
@@ -792,7 +793,7 @@ footer{
 .img-pokemon {
     width: 140px;
     height: 140px;
-    filter: drop-shadow(0 0 10px rgba(230, 184, 0, 0.6));
+    filter: drop-shadow(0 0 10px rgba(230, 46, 0, 0.6));
     transition: transform 0.3s ease;
 }
 

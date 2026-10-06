@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     });
 
+
     // BOTON PARA SUBIR
     const btnArriba = document.getElementById('volver-arriba');
     if (btnArriba) {
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
     // APARICION DE TEXTOS
     const observadorScroll = new IntersectionObserver((entradas) => {
         entradas.forEach((entrada) => {
@@ -51,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     elementosParaAnimar.forEach((elemento) => {
         observadorScroll.observe(elemento);
     });
+
 
     // DESPLAZAMIENTO
     const lenis = new Lenis({
@@ -70,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
             lenis.scrollTo(destino);
         });
     });
+
 
     // SECRETO
     const fotoSecreta = document.getElementById('foto-secreta');
@@ -135,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         elementoAnio.textContent = fechaActual;
     }
 
+
     // MODO CLARO OSCURO
     const btnTema = document.getElementById('btn-tema');
     const iconoTema = btnTema.querySelector('i');
@@ -166,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
+    // FORMULARIO DE CONTACTO
     document.getElementById('formulario-contacto').addEventListener('submit', function(event) {
         event.preventDefault(); // Evita que la página intente recargarse al enviar
 
@@ -201,6 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Cargar APIs al inicio
     cargarFrase();
     cargarClima();
     cargarDolar();

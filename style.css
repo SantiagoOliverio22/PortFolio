@@ -1,3 +1,4 @@
+/* FUENTES */
 @font-face {
     font-family: 'Titulos';
     src: url('Nasalization\ Rg.otf') format('truetype');
@@ -11,17 +12,7 @@
     src: url('CodeSaver-Regular.otf') format('truetype');  
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body{
-    margin: 0;
-    padding: 0;
-    color: #ffffff;
-    font-family: 'general';
-}
-
+/* VIDEO DE FONDO */
 .videoFondo{
     position: fixed;
     top: 0;
@@ -31,6 +22,18 @@ body{
     object-fit: cover;
     z-index: -1;
     filter: blur(4px);
+}
+
+/* ESTILOS GENERALES */
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-family: 'general';
 }
 
 hr{
@@ -46,6 +49,7 @@ h1{
     text-align: center;
     font-family: 'Titulos';
 }
+
 h2{
     font-size: 50px;
     margin-top: -50px;
@@ -53,13 +57,45 @@ h2{
     text-align: center;
     font-family: 'subtitulos';  
 }
+
 h3{
     font-size: 30px;
     font-family: 'subtitulos';
     margin: 100px 0 20px 50px;
 }
+
 p{
     font-size: 20px;
+}
+
+ul{
+    gap: 60px;
+    list-style: square;
+    padding: 0;
+    margin: 0 0 0 150px;
+    li{
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+blockquote{
+    background-color: #00000099;
+    margin: 30px 0;
+    padding: 20px 25px;
+    color: #ffffff;
+    text-align: center;
+    cite {
+        text-align: right;
+        display: block;
+        margin-top: 15px;
+        color: #ffffff; 
+        font-size: 20px;
+        text-shadow: 0 0 10px #ffffff;
+    }
+    cite::before {
+        content: "— ";
+    }
 }
 
 h1, h2, h3, p, li, cite {
@@ -67,6 +103,7 @@ h1, h2, h3, p, li, cite {
     text-shadow: 0 0 8px #000000E6;
 }
 
+/* NAVEGACIÓN */
 nav{
     ul{
         display: flex;
@@ -96,6 +133,7 @@ nav{
     }
 }
 
+/* Div Inicio */
 .yoinicio{
     display: flex;
     align-items: flex-start;
@@ -122,6 +160,7 @@ nav{
     }
 }
 
+/* SOBRE MI */
 #sobremi{
     h2{
         margin-top: 400px;
@@ -131,6 +170,8 @@ nav{
         margin: 30px 100px 0 100px;
     }
 }
+
+/* Div Sobre mi */
 .yosobremi{
     display: flex;
     align-items: flex-start;
@@ -170,16 +211,8 @@ nav{
         text-shadow: 2px 2px 5px #000000;
     }
 }
-ul{
-    gap: 60px;
-    list-style: square;
-    padding: 0;
-    margin: 0 0 0 150px;
-    li{
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-}
+
+/* Logos Habilidades */
 .habilidades {
     display: flex;
     justify-content: center;
@@ -195,30 +228,14 @@ ul{
     }
 }
 
-blockquote{
-    background-color: #00000099;
-    margin: 30px 0;
-    padding: 20px 25px;
-    color: #ffffff;
-    text-align: center;
-    cite {
-        text-align: right;
-        display: block;
-        margin-top: 15px;
-        color: #ffffff; 
-        font-size: 20px;
-        text-shadow: 0 0 10px #ffffff;
-    }
-    cite::before {
-        content: "— ";
-    }
-}
-
+/* Seccion Proyrctos */
 #proyectos{
     h2{
         margin-top: 400px;
         margin-bottom: 200px;
     }
+
+    /* div que envuelve los 3 proyectos */
     .divproy{
         display: flex;
         justify-content: space-between;
@@ -226,6 +243,8 @@ blockquote{
         margin: 0 0 0 0;
         align-items: stretch;
         align-items: flex-start;
+
+        /* Tarjetas de proyecto */
         .tarjet {
             flex: 1; 
             border-radius: 8px;
@@ -251,11 +270,13 @@ blockquote{
             i{
                 font-size: 60px;
                 margin-bottom: 15px;
-                color: #00BFFF;
+                
             }
+
+            /* Ver detalles */
             .indicador-click {
                 display: block;
-                margin-top: auto; /* Empuja el texto al fondo si la tarjeta es muy alta */
+                margin-top: auto; 
                 padding-top: 15px;
                 font-size: 14px;
                 color: rgba(0, 191, 255, 0.6);
@@ -263,8 +284,10 @@ blockquote{
                 letter-spacing: 2px;
                 font-family: 'subtitulos';
                 i{
-                    font-size: 20px;
+                    font-size: 30px;
+                    color: #00BFFF;
                 }
+                
             }
 
         }
@@ -275,6 +298,8 @@ blockquote{
                 color: #00BFFF; 
             }
         }
+
+        /* oculto */
         .contenido-extra {
             display: none; 
             margin-top: 20px;
@@ -316,6 +341,7 @@ blockquote{
     
 }
 
+/* CONTACTO */
 #contacto{
     h2{
         margin-top: 400px;
@@ -327,6 +353,8 @@ blockquote{
         color: #00BFFF;
         margin-bottom: 30px;
     }
+
+    /* redes */
     .redes{
         display: flex;
         justify-content: center;
@@ -357,6 +385,7 @@ blockquote{
         
     }
    
+    /* generales */
     fieldset {
         border: 1px solid #00BFFF4C; 
         border-radius: 8px;
@@ -372,6 +401,7 @@ blockquote{
         text-align: center;
     }
 
+    /* formulario */
     form {
         max-width: 900px;
         margin: 40px auto;
@@ -428,6 +458,8 @@ blockquote{
                 font-weight: normal;
             }
         }
+
+        /* botones */
         #botones {
             display: flex;
             justify-content: center;
@@ -463,13 +495,14 @@ blockquote{
         
 }
 
- 
+ /* Referencias */
 #ryc{
     h2{
         margin-top: 400px;
     }
 }
 
+/* Footer */
 footer{
     text-align: center;
     color: #ffffff;
@@ -490,6 +523,7 @@ footer{
     }
 }
 
+/* Botón de volver arriba */
 #volver-arriba {
     position: fixed;
     bottom: 30px;
@@ -511,30 +545,29 @@ footer{
     transform: translateY(20px);
     transition: all 0.3s ease;
 }
-
 #volver-arriba:hover {
     background-color: #00BFFF;
     color: black;
     box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
 }
-
 #volver-arriba.mostrar {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
+/* Elementos ocultos al cargar la página */
 .oculto-scroll {
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.8s ease-out;
 }
-
 .oculto-scroll.mostrar-scroll {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* Mensaje secreto */
 #mensaje-secreto {
     position: fixed;
     top: 50%;
@@ -556,17 +589,16 @@ footer{
     opacity: 0;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
-
 #mensaje-secreto.flotante-activo {
     visibility: visible;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
 }
 
+/* Elementos ocultos referencias */
 .oculto {
     display: none;
 }
-
 .mostrar-mas {
     display: block !important;
     animation: aparecerTexto 0.5s ease-in;
@@ -577,6 +609,7 @@ footer{
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Ver más Referencias */
 #boton-VerMas {
     background-color: transparent;
     color: #00BFFF;
@@ -590,13 +623,13 @@ footer{
     display: block;
     transition: all 0.3s ease;
 }
-
 #boton-VerMas:hover {
     background-color: #00BFFF;
     color: #000000;
     box-shadow: 0 0 15px #00BFFF80;
 }
 
+/* boton de tema claro / oscuro */
 #btn-tema {
     position: fixed;
     top: 20px;
@@ -609,14 +642,14 @@ footer{
     z-index: 9999; 
     transition: all 0.3s ease;
 }
-
 #btn-tema:hover {
     color: #00BFFF; 
     transform: scale(1.15); 
     filter: drop-shadow(0 0 15px rgba(0, 191, 255, 0.8));
 }
 
-/* --- SECCIÓN APIs (Frase) --- */
+/* SECCIÓN APIs */
+/* Frases */
 #contenedor-frase {
     max-width: 800px;
     margin: 20px auto;
@@ -624,7 +657,6 @@ footer{
     opacity: 0;
     transition: opacity 0.8s ease;
 }
-
 #contenedor-frase blockquote {
     background-color: rgba(0, 0, 0, 0.6); 
     backdrop-filter: blur(10px);
@@ -634,14 +666,12 @@ footer{
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
-
 #texto-frase {
     font-size: 22px;
     font-style: italic;
     margin: 0;
     color: #ffffff; 
 }
-
 #autor-frase {
     color: #00BFFF;
     font-size: 18px;
@@ -650,14 +680,13 @@ footer{
     font-weight: bold;
 }
 
-/* --- SECCIÓN APIs (Clima y Dólar) --- */
+/* Clima, Dólar y crypto */
 .titulo-indicadores {
     text-align: center;
     color: #00BFFF;
     margin-top: 80px;
     font-family: 'subtitulos';
 }
-
 #indicadores-api {
     display: flex;
     justify-content: center;
@@ -665,14 +694,12 @@ footer{
     flex-wrap: wrap;
     margin: 0 20px 50px 20px;
 }
-
 .tarjet-api {
     flex: 1;
     min-width: 250px;
     max-width: 350px;
     background-color: rgba(0, 0, 0, 0.6); 
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border: 2px solid rgba(0, 196, 230, 0.4);
     border-radius: 8px;
     padding: 20px;
@@ -683,32 +710,27 @@ footer{
     transition: all 0.3s ease;
     color: #ffffff; 
 }
-
 .tarjet-api:hover {
     transform: translateY(-5px);
     border-color: #ffffff; 
 }
-
 .tarjet-api h4 {
     color: #00BFFF;
     font-size: 22px;
     margin-top: 0;
     font-family: 'subtitulos';
 }
-
-#resultado-clima, #resultado-dolar {
+#resultado-clima, #resultado-dolar, #resultado-crypto {
     min-height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
-#resultado-clima p, #resultado-dolar p {
+#resultado-clima p, #resultado-dolar p, #resultado-crypto p {
     margin: 5px 0;
     font-size: 18px;
     color: #ffffff; 
 }
-
 .btn-api {
     margin-top: auto;
     background: transparent;
@@ -722,22 +744,20 @@ footer{
     font-size: 16px;
     font-weight: bold;
 }
-
 .btn-api:hover {
     background-color: #00BFFF;
     color: #000000; 
     box-shadow: 0 0 10px rgba(230, 184, 0, 0.5);
 }
 
-/* --- CONTENEDOR DE APIs FINALES --- */
+/* APIS DEL FINAL */
 .contenedor-apis-finales {
     display: flex;
     justify-content: center;
     gap: 40px;
-    flex-wrap: wrap; /* Permite que pasen una abajo de la otra en celulares */
+    flex-wrap: wrap;
     margin: 80px 20px 100px 20px;
 }
-
 .tarjeta-dinamica {
     flex: 1;
     min-width: 280px;
@@ -745,7 +765,6 @@ footer{
     display: flex;
     flex-direction: column;
 }
-
 .contenido-api {
     min-height: 150px;
     display: flex;
@@ -754,12 +773,11 @@ footer{
     justify-content: center;
     text-align: center;
 }
-
 .btn-dinamico {
-    margin-top: auto; /* Empuja el botón siempre al fondo */
+    margin-top: auto; 
 }
 
-/* --- CLASES ESPECÍFICAS: CHISTE --- */
+/* CHISTE */
 .categoria-chiste {
     font-size: 14px;
     color: #00BFFF;
@@ -768,24 +786,21 @@ footer{
     font-weight: bold;
     display: block;
 }
-
 .texto-chiste {
     margin: 15px 0;
     font-size: 18px;
 }
 
-/* --- CLASES ESPECÍFICAS: POKEAPI --- */
+/* POKEAPI */
 .img-pokemon {
     width: 140px;
     height: 140px;
     filter: drop-shadow(0 0 10px rgba(0, 230, 199, 0.6));
     transition: transform 0.3s ease;
 }
-
 .img-pokemon:hover {
     transform: scale(1.15);
 }
-
 .nombre-pokemon {
     margin: 10px 0 5px 0;
     text-transform: capitalize;
@@ -793,12 +808,10 @@ footer{
     font-size: 24px;
     font-family: 'subtitulos';
 }
-
 .dato-pokemon {
     margin: 5px 0 0 0;
     font-size: 16px;
 }
-
 .tipo-pokemon {
     text-transform: capitalize;
 }
@@ -810,6 +823,7 @@ footer{
     font-weight: bold;
 }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
     h1 {
         font-size: 35px;
