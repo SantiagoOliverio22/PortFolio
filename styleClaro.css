@@ -64,7 +64,6 @@ p{
 h1, h2, h3, p, li, cite {
     color: #000000; 
     text-shadow: -1px -1px 1px #a0a0a0,  1px -1px 1px #a0a0a0, -1px  1px 1px #a0a0a0, 1px  1px 1px #a0a0a0, 0    0   10px #ffffff, 0    0   20px #ffffff;
-
 }
 
 /* --- BOTÓN DE TEMA --- */
@@ -250,10 +249,12 @@ blockquote{
         align-items: flex-start;
         .tarjet {
             flex: 1; 
-            border: 2px solid #FF2A40;
             border-radius: 8px;
             padding: 25px 20px;
-            background-color: #ffffff9c;
+            background-color: rgba(255, 255, 255, 0.6); 
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(230, 184, 0, 0.4); 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -268,10 +269,31 @@ blockquote{
             p{
                 font-size: 18px;
             }
+            i{
+                font-size: 60px;
+                margin-bottom: 15px;
+                color: #FF2A40;
+            }
+            .indicador-click {
+                display: block;
+                margin-top: auto; /* Empuja el texto al fondo si la tarjeta es muy alta */
+                padding-top: 15px;
+                font-size: 14px;
+                color: rgba(255, 42, 64, 0.6);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-family: 'subtitulos';
+                i{
+                    font-size: 20px;
+                }
+            }
         }
         .tarjet:hover {
             transform: translateY(-5px);
             border-color: #000000;
+            .indicador-click {
+                color: #FF2A40; 
+            }
         }
         .contenido-extra {
             display: none; 
@@ -608,6 +630,117 @@ footer{
     color: #000000;
     transform: scale(1.15);
     filter: drop-shadow(0 0 15px rgba(255, 42, 64, 0.8));
+}
+
+/* --- SECCIÓN APIs (Frase) --- */
+#contenedor-frase {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+#contenedor-frase blockquote {
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(230, 184, 0, 0.4);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#texto-frase {
+    font-size: 22px;
+    font-style: italic;
+    margin: 0;
+    color: #000000;
+}
+
+#autor-frase {
+    color: #FF2A40;
+    font-size: 18px;
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* --- SECCIÓN APIs (Clima y Dólar) --- */
+.titulo-indicadores {
+    text-align: center;
+    color: #FF2A40;
+    margin-top: 80px;
+    font-family: 'subtitulos';
+}
+
+#indicadores-api {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 0 20px 50px 20px;
+}
+
+.tarjet-api {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(230, 184, 0, 0.4);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.tarjet-api:hover {
+    transform: translateY(-5px);
+    border-color: #000000;
+}
+
+.tarjet-api h4 {
+    color: #FF2A40;
+    font-size: 22px;
+    margin-top: 0;
+    font-family: 'subtitulos';
+}
+
+#resultado-clima, #resultado-dolar {
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#resultado-clima p, #resultado-dolar p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.btn-api {
+    margin-top: auto;
+    background: transparent;
+    color: #FF2A40;
+    border: 2px solid #FF2A40;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'subtitulos';
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-api:hover {
+    background-color: #FF2A40;
+    color: #000000;
+    box-shadow: 0 0 10px rgba(255, 42, 64, 0.5);
 }
 
 

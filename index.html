@@ -37,6 +37,12 @@
             <hr>
         </nav>
     </header>
+    <div id="contenedor-frase">
+        <blockquote>
+            <p id="texto-frase">Cargando frase...</p>
+            <cite id="autor-frase"></cite>
+        </blockquote>
+    </div>
 
     <!-- CUERPO -->
     <main>
@@ -107,8 +113,11 @@
 
             <div class="divproy">
                 <article class="tarjet">
+                    <i class='bx bx-id-card'></i>
                     <h3>Pagina Personal</h3>
                     <p>Una pagina web personal que unifica todas mis redes sociales y le muestra a mis seguidores una parte sobre mi.</p>
+
+                    <span class="indicador-click">Ver detalles <i class='bx bx-chevron-down'></i></span>
                     
                     <div class="contenido-extra">
                         <img src="imagenes/WebMia.png" alt="Pagina Personal" style="width: 100%; border-radius: 5px;">
@@ -128,8 +137,11 @@
                 </article>
 
                 <article class="tarjet">
+                    <i class='bx bxs-game'></i>
                     <h3>Dragon con animaciones</h3>
-                    <p>Un dragon que se mueve y tiene animaciones, proyecto del secundario.</p>
+                    <p>Un dragon que se mueve y tiene animaciones, sigue al cursor, proyecto del secundario.</p>
+
+                    <span class="indicador-click">Ver detalles <i class='bx bx-chevron-down'></i></span>
                     
                     <div class="contenido-extra">
                         <img src="imagenes/dragon.png" alt="Dragon con animaciones" style="width: 100%; border-radius: 5px;">
@@ -148,8 +160,11 @@
                 </article>
 
                 <article class="tarjet">
+                    <i class='bx bx-palette'></i>
                     <h3>Animacion de Flor</h3>
                     <p>Una animacion de una flor que se mueve y tiene musica con un css extenso, proyecto del secundario.</p>
+
+                    <span class="indicador-click">Ver detalles <i class='bx bx-chevron-down'></i></span>
                     
                     <div class="contenido-extra">
                         <img src="imagenes/flor.png" alt="Animacion de Flor" style="width: 100%; border-radius: 5px;">
@@ -167,6 +182,27 @@
                         </div>
                     </div>
                 </article>
+            </div>
+
+            <h3 class="titulo-indicadores">Indicadores en Tiempo Real</h3>
+            <div id="indicadores-api">
+                
+                <div class="tarjet-api">
+                    <h4><i class='bx bx-cloud'></i> Clima en San Juan</h4>
+                    <div id="resultado-clima">
+                        <p>Conectando al satélite...</p>
+                    </div>
+                    <button class="btn-api" onclick="cargarClima()">Actualizar</button>
+                </div>
+
+                <div class="tarjet-api">
+                    <h4><i class='bx bx-line-chart'></i> Cotización Dólar</h4>
+                    <div id="resultado-dolar">
+                        <p>Consultando mercado...</p>
+                    </div>
+                    <button class="btn-api" onclick="cargarDolar()">Actualizar</button>
+                </div>
+
             </div>
 
         </section>
@@ -191,7 +227,7 @@
             </div>
 
             <fieldset>
-                <form action="#" method="post">
+                <form id="formulario-contacto" action="#" method="post">
 
                     <div class="contacto">
                         <fieldset>
