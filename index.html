@@ -203,6 +203,13 @@
                     <button class="btn-api" onclick="cargarDolar()">Actualizar</button>
                 </div>
 
+                <div class="tarjet-api">
+                    <h4><i class='bx bx-bitcoin'></i> Mercado Crypto</h4>
+                    <div id="resultado-crypto" class="contenido-api">
+                        <p>Consultando blockchain...</p>
+                    </div>
+                    <button id="btn-crypto" class="btn-api btn-dinamico">Actualizar</button>
+                </div>
             </div>
 
         </section>
@@ -325,6 +332,29 @@
        
 
     </main>
+    <hr>
+    <!-- Sección de APIs Finales -->
+    <div class="contenedor-apis-finales">
+        
+        <!-- Tarjeta 1: Humor Geek -->
+        <div class="tarjet-api tarjeta-dinamica">
+            <h4><i class='bx bx-code-block'></i> Humor Geek</h4>
+            <div id="resultado-chiste" class="contenido-api">
+                <p>Compilando chiste...</p>
+            </div>
+            <button class="btn-api btn-dinamico" onclick="cargarChiste()">Generar otro</button>
+        </div>
+
+        <!-- Tarjeta 2: PokeAPI -->
+        <div class="tarjet-api tarjeta-dinamica">
+            <h4><i class='bx bx-joystick'></i> Pokedex Aleatoria</h4>
+            <div id="resultado-pokemon" class="contenido-api">
+                <p>Buscando en la hierba alta...</p>
+            </div>
+            <button class="btn-api btn-dinamico" onclick="cargarPokemon()">Generar Personaje</button>
+        </div>
+
+    </div>
     <hr>
 
     <footer>

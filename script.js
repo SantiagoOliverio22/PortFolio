@@ -204,91 +204,197 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarFrase();
     cargarClima();
     cargarDolar();
+    cargarCrypto();
+    cargarChiste();
+    cargarPokemon();
 
-    // 1. API de Frases (DummyJSON)
-    async function cargarFrase() {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000); // Requisito 7
-        try {
-            const response = await fetch('https://dummyjson.com/quotes/random', { signal: controller.signal });
-            clearTimeout(timeoutId);
-            
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            
-            const data = await response.json();
-            
-            // Requisito 5: Mostrar dos datos (Frase y Autor)
-            document.getElementById('texto-frase').textContent = `"${data.quote}"`;
-            document.getElementById('autor-frase').textContent = data.author;
-            document.getElementById('contenedor-frase').style.opacity = '1';
-        } catch (error) {
-            // Fallback elegante en caso de error
-            document.getElementById('texto-frase').textContent = `"La tecnología es el arte de resolver problemas."`;
-            document.getElementById('autor-frase').textContent = "Anónimo";
-            document.getElementById('contenedor-frase').style.opacity = '1';
-        }
-    }
-
-    // 2. API del Clima (Open-Meteo para San Juan)
-    async function cargarClima() {
-        const div = document.getElementById('resultado-clima');
-        div.innerHTML = "<p>Cargando datos...</p>";
-        
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000); // Requisito 7
-        
-        try {
-            // Coordenadas geográficas de San Juan
-            const url = 'https://api.open-meteo.com/v1/forecast?latitude=-31.5375&longitude=-68.5364&current_weather=true';
-            const response = await fetch(url, { signal: controller.signal });
-            clearTimeout(timeoutId);
-            
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            
-            const data = await response.json();
-            
-            // Requisito 5: Mostrar dos datos (Temperatura y Viento)
-            div.innerHTML = `
-                <p style="margin: 5px 0; font-size: 18px;"><strong>Temperatura:</strong> ${data.current_weather.temperature}°C</p>
-                <p style="margin: 5px 0; font-size: 18px;"><strong>Viento:</strong> ${data.current_weather.windspeed} km/h</p>
-            `;
-        } catch (error) {
-            // Requisito 8: Manejo de errores
-            const mensaje = error.name === 'AbortError' ? 'Tiempo agotado (5s).' : error.message;
-            div.innerHTML = `<p style="color: red; font-size: 16px; font-weight: bold;">Error: ${mensaje}</p>`;
-        }
-    }
-
-    // 3. API Cotización (DolarAPI)
-    async function cargarDolar() {
-        const div = document.getElementById('resultado-dolar');
-        div.innerHTML = "<p>Cargando datos...</p>";
-        
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000); // Requisito 7
-        
-        try {
-            const response = await fetch('https://dolarapi.com/v1/dolares', { signal: controller.signal });
-            clearTimeout(timeoutId);
-            
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            
-            const data = await response.json();
-            
-            // La API devuelve un array, filtramos para obtener el Oficial y el Blue
-            const oficial = data.find(d => d.casa === 'oficial');
-            const blue = data.find(d => d.casa === 'blue');
-            
-            // Requisito 5: Mostrar dos datos (Dólar Oficial y Dólar Blue)
-            div.innerHTML = `
-                <p style="margin: 5px 0; font-size: 18px;"><strong>Oficial:</strong> $${oficial.venta}</p>
-                <p style="margin: 5px 0; font-size: 18px;"><strong>Blue:</strong> $${blue.venta}</p>
-            `;
-        } catch (error) {
-            // Requisito 8: Manejo de errores
-            const mensaje = error.name === 'AbortError' ? 'Tiempo agotado (5s).' : error.message;
-            div.innerHTML = `<p style="color: red; font-size: 16px; font-weight: bold;">Error: ${mensaje}</p>`;
-        }
-    }
 });
 
+
+// 1. API de Frases (DummyJSON)
+async function cargarFrase() {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // Requisito 7
+    try {
+        const response = await fetch('https://dummyjson.com/quotes/random', { signal: controller.signal });
+        clearTimeout(timeoutId);
+        
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        
+        const data = await response.json();
+        
+        // Requisito 5: Mostrar dos datos (Frase y Autor)
+        document.getElementById('texto-frase').textContent = `"${data.quote}"`;
+        document.getElementById('autor-frase').textContent = data.author;
+        document.getElementById('contenedor-frase').style.opacity = '1';
+    } catch (error) {
+        // Fallback elegante en caso de error
+        document.getElementById('texto-frase').textContent = `"La tecnología es el arte de resolver problemas."`;
+        document.getElementById('autor-frase').textContent = "Anónimo";
+        document.getElementById('contenedor-frase').style.opacity = '1';
+    }
+}
+
+// 2. API del Clima (Open-Meteo para San Juan)
+async function cargarClima() {
+    const div = document.getElementById('resultado-clima');
+    div.innerHTML = "<p>Cargando datos...</p>";
+    
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // Requisito 7
+    
+    try {
+        // Coordenadas geográficas de San Juan
+        const url = 'https://api.open-meteo.com/v1/forecast?latitude=-31.5375&longitude=-68.5364&current_weather=true';
+        const response = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        
+        const data = await response.json();
+        
+        // Requisito 5: Mostrar dos datos (Temperatura y Viento)
+        div.innerHTML = `
+            <p style="margin: 5px 0; font-size: 18px;"><strong>Temperatura:</strong> ${data.current_weather.temperature}°C</p>
+            <p style="margin: 5px 0; font-size: 18px;"><strong>Viento:</strong> ${data.current_weather.windspeed} km/h</p>
+        `;
+    } catch (error) {
+        // Requisito 8: Manejo de errores
+        const mensaje = error.name === 'AbortError' ? 'Tiempo agotado (5s).' : error.message;
+        div.innerHTML = `<p style="color: red; font-size: 16px; font-weight: bold;">Error: ${mensaje}</p>`;
+    }
+}
+
+// 3. API Cotización (DolarAPI)
+async function cargarDolar() {
+    const div = document.getElementById('resultado-dolar');
+    div.innerHTML = "<p>Cargando datos...</p>";
+    
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // Requisito 7
+    
+    try {
+        const response = await fetch('https://dolarapi.com/v1/dolares', { signal: controller.signal });
+        clearTimeout(timeoutId);
+        
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        
+        const data = await response.json();
+        
+        // La API devuelve un array, filtramos para obtener el Oficial y el Blue
+        const oficial = data.find(d => d.casa === 'oficial');
+        const blue = data.find(d => d.casa === 'blue');
+        
+        // Requisito 5: Mostrar dos datos (Dólar Oficial y Dólar Blue)
+        div.innerHTML = `
+            <p style="margin: 5px 0; font-size: 18px;"><strong>Oficial:</strong> $${oficial.venta}</p>
+            <p style="margin: 5px 0; font-size: 18px;"><strong>Blue:</strong> $${blue.venta}</p>
+        `;
+    } catch (error) {
+        // Requisito 8: Manejo de errores
+        const mensaje = error.name === 'AbortError' ? 'Tiempo agotado (5s).' : error.message;
+        div.innerHTML = `<p style="color: red; font-size: 16px; font-weight: bold;">Error: ${mensaje}</p>`;
+    }
+}
+
+//bitcoins
+async function cargarCrypto() {
+    const div = document.getElementById('resultado-crypto');
+    div.innerHTML = "<p><em>Consultando blockchain...</em></p>";
+    
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    
+    try {
+        // Endpoint público de Binance para el par Bitcoin / USDT (Dólar)
+        const url = 'https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT';
+        const response = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        
+        // Procesar los datos: Convertimos el texto a número para formatearlo bonito
+        const precio = parseFloat(data.lastPrice).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        const variacion = parseFloat(data.priceChangePercent).toFixed(2);
+        
+        // Lógica visual: Verde si sube, Rojo si baja
+        const colorVariacion = variacion >= 0 ? '#4CAF50' : '#FF5252';
+        const flecha = variacion >= 0 ? '▲' : '▼';
+        
+        // Mostrar los dos datos (Precio actual y Variación)
+        div.innerHTML = `
+            <p style="margin: 5px 0; font-size: 20px;"><strong>BTC:</strong> ${precio}</p>
+            <p style="margin: 5px 0; font-size: 16px;">
+                <strong>24h:</strong> 
+                <span style="color: ${colorVariacion}; font-weight: bold;">${flecha} ${Math.abs(variacion)}%</span>
+            </p>
+        `;
+    } catch (error) {
+        const mensaje = error.name === 'AbortError' ? 'Timeout (5s)' : error.message;
+        div.innerHTML = `<p class="error-api">Error al conectar. (${mensaje})</p>`;
+    }
+}
+
+
+// --- 4. JOKE API ---
+async function cargarChiste() {
+    const div = document.getElementById('resultado-chiste');
+    div.innerHTML = "<p><em>Compilando código...</em></p>";
+    
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); 
+    
+    try {
+        const url = 'https://v2.jokeapi.dev/joke/Programming?lang=es';
+        const response = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        if (data.error) throw new Error(data.message);
+
+        let textoChiste = data.type === 'single' 
+            ? `"${data.joke}"` 
+            : `<strong>${data.setup}</strong><br><br><em>${data.delivery}</em>`;
+        
+        div.innerHTML = `
+            <span class="categoria-chiste">Categoría: ${data.category}</span>
+            <p class="texto-chiste">${textoChiste}</p>
+        `;
+    } catch (error) {
+        const mensaje = error.name === 'AbortError' ? 'Timeout (5s)' : error.message;
+        div.innerHTML = `<p class="error-api">Error 404: Gracia no encontrada. (${mensaje})</p>`;
+    }
+}
+
+// --- 5. POKE API ---
+async function cargarPokemon() {
+    const div = document.getElementById('resultado-pokemon');
+    div.innerHTML = "<p><em>Buscando imagen y datos...</em></p>";
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+    try {
+        const randomId = Math.floor(Math.random() * 151) + 1; // Gen 1
+        const url = `https://pokeapi.co/api/v2/pokemon/${randomId}`;
+        const response = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        
+        const imagenUrl = data.sprites.other['official-artwork'].front_default;
+
+        div.innerHTML = `
+            <img src="${imagenUrl}" alt="${data.name}" class="img-pokemon">
+            <h4 class="nombre-pokemon">${data.name}</h4>
+            <p class="dato-pokemon"><strong>Tipo:</strong> <span class="tipo-pokemon">${data.types[0].type.name}</span></p>
+            <p class="dato-pokemon"><strong>Experiencia base:</strong> ${data.base_experience}</p>
+        `;
+    } catch (error) {
+        const mensaje = error.name === 'AbortError' ? 'Timeout (5s)' : error.message;
+        div.innerHTML = `<p class="error-api"><i class='bx bx-error'></i> Error de conexión: ${mensaje}</p>`;
+    }
+}

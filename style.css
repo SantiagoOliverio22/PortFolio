@@ -729,7 +729,86 @@ footer{
     box-shadow: 0 0 10px rgba(230, 184, 0, 0.5);
 }
 
+/* --- CONTENEDOR DE APIs FINALES --- */
+.contenedor-apis-finales {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Permite que pasen una abajo de la otra en celulares */
+    margin: 80px 20px 100px 20px;
+}
 
+.tarjeta-dinamica {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenido-api {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-dinamico {
+    margin-top: auto; /* Empuja el botón siempre al fondo */
+}
+
+/* --- CLASES ESPECÍFICAS: CHISTE --- */
+.categoria-chiste {
+    font-size: 14px;
+    color: #00BFFF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    display: block;
+}
+
+.texto-chiste {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+/* --- CLASES ESPECÍFICAS: POKEAPI --- */
+.img-pokemon {
+    width: 140px;
+    height: 140px;
+    filter: drop-shadow(0 0 10px rgba(0, 230, 199, 0.6));
+    transition: transform 0.3s ease;
+}
+
+.img-pokemon:hover {
+    transform: scale(1.15);
+}
+
+.nombre-pokemon {
+    margin: 10px 0 5px 0;
+    text-transform: capitalize;
+    color: #00BFFF;
+    font-size: 24px;
+    font-family: 'subtitulos';
+}
+
+.dato-pokemon {
+    margin: 5px 0 0 0;
+    font-size: 16px;
+}
+
+.tipo-pokemon {
+    text-transform: capitalize;
+}
+
+/* --- CLASE GENÉRICA PARA ERRORES --- */
+.error-api {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+}
 
 @media (max-width: 768px) {
     h1 {
